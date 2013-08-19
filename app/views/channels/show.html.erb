@@ -1,0 +1,33 @@
+<div class="page snapped">
+</div>
+<div class="page fill bg-color-lighten">
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <b>Name:</b>
+    <%= @channel.name %>
+  </p>
+
+  <p>
+    <b>Url:</b>
+    <%= @channel.url %>
+  </p>
+
+  <p>
+    <b>User:</b>
+    <%= @channel.user %>
+  </p>
+
+
+  <%= link_to 'Edit', edit_channel_path(@channel) %> |
+  <%= link_to 'Back', channels_path %>
+  <br>
+  <% @channel.update_articles%>
+  <% @channel.articles.each do |article|%>
+      <h3> <%= article.title%></h3>
+      <%= article.description.truncate(150)%>
+  <%end%>
+
+</div>
+

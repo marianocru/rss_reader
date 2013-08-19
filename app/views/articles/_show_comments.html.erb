@@ -1,0 +1,18 @@
+<br>
+<% @article.comments.each do |comment| %>
+    <div class="span5">
+      <ul class="replies">
+        <li class="bg-color-orange">
+          <b class="sticker sticker-left sticker-color-orange"></b>
+          <div class="avatar"><%= image_tag comment.avatar.url(:thumb)%></div>
+          <div class="reply">
+            <div class="date"><%= comment.created_at.strftime("%Y-%m-%d") %></div>
+            <div class="author"><%= comment.author %></div>
+            <div class="text"><%= comment.comment %></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <br>
+<% end %>
+<%= link_to raw("<button class='mini bg-color-greenLight'> Hide Comments </button>"), {:controller => 'articles', :action => 'hide_comments', :id =>@article.id}, :remote=>true %>

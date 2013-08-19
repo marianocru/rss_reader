@@ -1,0 +1,35 @@
+<div class="page snapped">
+  <h1>Listing channels</h1>
+  <%= link_to raw("<button class='standart default'>New Channel</button>"), new_channel_path %><br />
+  <%= link_to raw("<button class='active bg-color-orange'>Show Favorites</button>"), new_channel_path %>
+  <br>
+  <br>
+  <div id="channel_list">
+    <%= render 'channel_list'%>
+  </div>
+
+  <br/>
+</div>
+<div class="page fill">
+      <div  id="search" style="margin-left: 10px;">
+    <%= form_tag articles_search_path, :method => 'get', :remote=> true, :id => "eventos_search",:name=>'form'  do    %>
+        <%= select_tag "channel_id", options_from_collection_for_select(@channels, :id, :name), :prompt => "Channel ?" %>
+        <%= text_field_tag :tittle, params[:tittle], :placeholder => 'tittle ?' %>
+        <%= text_field_tag :summary, params[:summary], :placeholder => 'summary ?' %>
+        <%= submit_tag "Search" %>
+        <button class="tip-left"><%= link_to 'clear', {:remote => true, action: 'index'}, :onclick => "form.reset();" %> </button>
+    <% end %>
+  </div>
+
+   <h2>Channel</h2>
+  <div id='data_channel'>
+     <%= render 'data_channel'%>
+  </div>
+  <h2>Articles</h2>
+   <div id='articles_list'>
+     <%= render 'articles_of_channel_list'%>
+   </div>
+  <br>
+
+</div>
+

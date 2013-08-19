@@ -1,0 +1,24 @@
+<div class="nav-bar-inner">
+  <a href="#"><span class="element brand">RSS reader</span></a>
+  <span class="divider"></span>
+
+        <ul class='menu' style="float: right;">
+       <% if user_signed_in? %>
+              <li><a>Signed in as <%= current_user.email %>. Not you?
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>  </a> </li>
+              <li><a>
+            <%= link_to "Edit", edit_user_registration_path %>    </a> </li>
+              <li><a>
+                <div style='height: 20px;'>
+                  <%= image_tag current_user.avatar.url(:thumb)%>
+                </div>
+             </a> </li>
+        <% else %>
+              <li><a>  <%= link_to "Sign up", new_user_registration_path %> </a> </li>
+              <li><a>  <%= link_to "Sign in", new_user_session_path %>  </a> </li>
+              <li><a> <%=  link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)%> </a> </li>
+      <% end %>
+
+      </ul>
+
+</div>

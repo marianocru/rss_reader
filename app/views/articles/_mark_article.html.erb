@@ -1,0 +1,7 @@
+<h4>
+  <%if @article.mark%>
+      <%= link_to raw("<i class='icon-star'></i>"), {:controller => 'articles', :action => 'add_remove_favorite', :id =>@article.id}, :remote=>true %>
+  <%else%>
+      <%= link_to raw("<i class='icon-star-empty'></i>"), {:controller => 'articles', :action => 'add_remove_favorite', :id =>@article.id}, :remote=>true %>
+  <%end%>
+  <%= @article.title%></h4>

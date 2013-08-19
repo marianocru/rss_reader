@@ -1,0 +1,11 @@
+<p class="bg-color-blueDark padding20 fg-color-white">
+<% if @channel.blank?%>
+      No registered channels
+<%else%>
+    <b>Name:</b>
+    <%= @channel.name %>
+    <br>
+    <b>Url:</b>
+    <%= @channel.url %>
+</p>
+<%end%>
