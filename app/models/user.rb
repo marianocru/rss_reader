@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
                         :medium => "400x400"
                     }
 
+  validates_presence_of :first_name, :last_name, :login
   validates_length_of :first_name, :maximum => 50
   validates_length_of :last_name, :maximum => 50
   validates_length_of :login, :maximum => 50
