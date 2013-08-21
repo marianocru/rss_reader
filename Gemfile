@@ -21,7 +21,7 @@ gem 'nifty-generators'
 gem 'rufus-scheduler'
 gem 'paperclip'
 gem 'haml'
-gem 'haml'
+gem 'haml-rails', :group => :development
 gem 'html2haml'
 gem 'activeadmin'
 # Gems used only for assets and not required

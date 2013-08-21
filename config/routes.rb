@@ -20,6 +20,12 @@ RssReader::Application.routes.draw do
   match 'articles/add_remove_favorite' => 'articles#add_remove_favorite'
   resources :articles
 
+  root :to => 'channels#index'
+
+  match "/admin/update_passwords" => 'admin/update_passwords#update', via: :post
+  ActiveAdmin.routes(self)
+
+
   match '/auth/:provider/callback' => 'authentications#create'
   #devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 

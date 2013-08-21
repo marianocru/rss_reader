@@ -2,7 +2,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery :except => :twitter
 
-  def after_sign_in_path_for(resource)
-    user_path(resource)
+  def authenticate_admin_user!
+    redirect_to new_user_session_path unless current_user.try(:is_admin?)
   end
+
+
 end
