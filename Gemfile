@@ -20,6 +20,10 @@ gem 'feedzirra'
 gem 'nifty-generators'
 gem 'rufus-scheduler'
 gem 'paperclip'
+gem 'haml'
+gem 'haml'
+gem 'html2haml'
+gem 'activeadmin'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

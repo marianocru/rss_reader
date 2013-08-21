@@ -121,5 +121,12 @@ class ArticlesController < ApplicationController
     end
   end
 
-
+  def show_favorites
+    @articles = Article.where(["mark = 'true' and channel_id in (select id from channels where user_id = ? )", current_user])
+    @channel = ''
+    @search = true
+    respond_to do |format|
+      format.js
+    end
+  end
 end

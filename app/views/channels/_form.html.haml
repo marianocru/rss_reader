@@ -1,0 +1,26 @@
+= form_for(@channel) do |f|
+  - if @channel.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@channel.errors.count, "error")
+        prohibited this channel from being saved:
+      %ul
+        - @channel.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :url
+    %br/
+    = f.text_field :url
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .actions
+    = f.submit
+%script{:charset => "utf-8", :type => "text/javascript"}
+  jQuery("#channel_url").change(function() {
+  $.ajax({url: '#{url_for :action => 'take_title'}',
+  data: 'url=' + this.value,
+  dataType: 'script'})
+  params[url]= $("#channel_name").val;
+  });

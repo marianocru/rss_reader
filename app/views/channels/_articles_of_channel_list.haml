@@ -1,0 +1,28 @@
+%ul.listview.image
+  - if @channel.blank? and @search.blank?
+    No registered channels.
+  - else
+    - if @articles.blank?
+      No registered articles.
+    - else
+      - @articles.each do |article|
+        %li.selected
+          .data
+            %div{:id => "article_header-#{article.id}"}
+              %h4
+                - if article.mark
+                  = link_to raw("<i class='icon-star'></i>"), {:controller => 'articles', :action => 'add_remove_favorite', :id =>article.id}, :remote=>true
+                - else
+                  = link_to raw("<i class='icon-star-empty'></i>"), {:controller => 'articles', :action => 'add_remove_favorite', :id =>article.id}, :remote=>true
+                = article.title
+            = article.pubdate
+            \- #{article.channel.name}
+            %p
+              = (article.description.length > 300) ? raw(article.description.truncate(300)) : raw(article.description)
+            %a{:href => article.link} Read more...
+            %br
+              %br
+                %div
+                  = link_to raw("<button class='mini bg-color-greenDark'> Add Comment </button>"), {:controller => 'articles', :action => 'add_comment', :id =>article.id}, :remote=>true
+                  = link_to raw("<button class='mini bg-color-teal'> View Comments </button>"), {:controller => 'articles', :action => 'show_comments', :id =>article.id}, :remote=>true
+                %div{:id => "comment#{article.id}"}

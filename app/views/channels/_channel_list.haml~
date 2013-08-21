@@ -1,0 +1,9 @@
+- @channels.each do |channel|
+= link_to raw("<span class='label info'>#{channel.name}</span>"), {:controller => 'channels', :action => 'change_channel', :id=>channel.id}, :remote=>true
+= channel.url.truncate(30)
+%br/
+= link_to 'Show', channel
+= link_to 'Edit', edit_channel_path(channel)
+= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+%br/

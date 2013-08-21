@@ -1,0 +1,13 @@
+- @article.comments.each do |comment|
+  .span5
+    %ul.replies
+      %li.bg-color-orange
+        %b.sticker.sticker-left.sticker-color-orange
+        .avatar= image_tag comment.avatar.url(:thumb)
+        .reply
+          .date= comment.created_at.strftime("%Y-%m-%d")
+          .author= comment.author
+          .text= comment.comment
+  %br
+%br
+  = link_to raw("<button class='mini bg-color-greenLight'> Hide Comments </button>"), {:controller => 'articles', :action => 'hide_comments', :id =>@article.id}, :remote=>true

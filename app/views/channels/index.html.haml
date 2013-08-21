@@ -1,0 +1,26 @@
+.page.snapped
+  %h1 Listing channels
+  = link_to raw("<button class='standart default'>New Channel</button>"), new_channel_path
+  %br/
+  = link_to raw("<button class='active bg-color-orange'>Show Favorites</button>"), {:controller=>'articles', :action=>'show_favorites'}, :remote=>true
+  %br
+    %br
+      #channel_list
+        = render 'channel_list'
+      %br/
+.page.fill
+  #search{:style => "margin-left: 10px;"}
+    = form_tag articles_search_path, :method => 'get', :remote=> true, :id => "eventos_search",:name=>'form'  do
+      = select_tag "channel_id", options_from_collection_for_select(@channels, :id, :name), :prompt => "Channel ?"
+      = text_field_tag :tittle, params[:tittle], :placeholder => 'tittle ?'
+      = text_field_tag :summary, params[:summary], :placeholder => 'summary ?'
+      = submit_tag "Search"
+      %button.tip-left
+        = link_to 'clear', {:remote => true, action: 'index'}, :onclick => "form.reset();"
+  %h2 Channel
+  #data_channel
+    = render 'data_channel'
+  %h2 Articles
+  #articles_list
+    = render 'articles_of_channel_list'
+  %br

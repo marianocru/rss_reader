@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %title RSS reader
+    = stylesheet_link_tag  "application", media: "all"
+    = stylesheet_link_tag 'site.css'
+    = stylesheet_link_tag 'modern.css'
+    = stylesheet_link_tag 'modern-responsive.css'
+    = stylesheet_link_tag 'jquery-ui.css'
+    = stylesheet_link_tag 'font-awesome.min.css'
+    = javascript_include_tag "application","data-turbolinks-track" => true
+    = csrf_meta_tags
+    %script{:src => "http://code.jquery.com/jquery-1.9.1.js"}
+    %script{:src => "http://code.jquery.com/ui/1.10.3/jquery-ui.js"}
+    :javascript
+      $(function() {
+          $( "#tabs" ).tabs();
+      });
+      :javascript
+      $(document).ready(function(){
+          $('#open').click(function(){
+              $('#popup').fadeIn('slow');
+          });
+
+          $('#close').click(function(){
+              $('#popup').fadeOut('slow');
+          });
+      });
+    %body.metrouicss
+    #popup{:style => "display: none;"}
+      .content-popup
+        .close
+          %a#close{:href => "#"}
+            %img{:src => "images/close.png"}/
+        #popup-concepto
+    .page
+      .page-header
+        .page-header-content
+          .nav-bar
+            = (render :partial=>"/layouts/menu") if current_user
+            #user_nav
+      .page-region
+        .page-region-content
+          %p.notice= notice
+          %p.alert= alert
+          = yield

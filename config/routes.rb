@@ -1,5 +1,7 @@
 RssReader::Application.routes.draw do
 
+
+
   resources :comments
 
   resources :authentications
@@ -10,6 +12,7 @@ RssReader::Application.routes.draw do
   match 'channels/take_title' => 'channels#take_title'
   resources :channels
 
+  match 'articles/show_favorites' => 'articles#show_favorites'
   match 'articles/search' => 'articles#search'
   match 'articles/hide_comments' => 'articles#hide_comments'
   match 'articles/show_comments' => 'articles#show_comments'
@@ -19,9 +22,9 @@ RssReader::Application.routes.draw do
 
   match '/auth/:provider/callback' => 'authentications#create'
   #devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
              controllers: {omniauth_callbacks: "authentications"}
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -73,6 +76,9 @@ RssReader::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'channels#index'
+
+  match "/admin/update_passwords" => 'admin/update_passwords#update', via: :post
+  ActiveAdmin.routes(self)
   #root to: 'authentications#home'
   # See how all your routes lay out with "rake routes"
   match "/404", :to => "channels#index"
