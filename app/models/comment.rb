@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   belongs_to :article
-  attr_accessible :comment, :article, :article_id, :owner
+  attr_accessible :comment, :article, :article_id
 
   def user
     self.article.channel.user

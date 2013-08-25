@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3951525410">
+  <component name="DataSourceManagerImpl" format="xml" hash="1760923965">
     <data-source source="LOCAL" name="Rails rss_reader: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="4ab9c518-24ae-4b50-9bc8-d0094dd4bcce">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:rss_reader_development</jdbc-url>
@@ -32,6 +32,21 @@
     <data-source source="LOCAL" name="Rails rss_reader: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="b049b683-ef42-46c7-a9e9-8788eaccb8be">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:rss_reader_production</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>dfdadfc5dfd9dfdedfcddfd8dfcfdfd9</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-9.1-901.jdbc3.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails rss_reader: cucumber" product="PostgreSQL" version="9.1.9" jdbc-version="3.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.1 JDBC3 (build 901)" uuid="c335240d-63d0-406f-a565-3dcb604264a6">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:rss_reader_test</jdbc-url>
       <user-name>postgres</user-name>
       <user-password>dfdadfc5dfd9dfdedfcddfd8dfcfdfd9</user-password>
       <libraries>

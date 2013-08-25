@@ -15,6 +15,7 @@ module RssReader
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.exceptions_app = self.routes
+    config.action_dispatch.rescue_responses["ActionController::RoutingError"] = :not_found
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 

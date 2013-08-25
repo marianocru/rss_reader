@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -23,7 +23,7 @@ gem 'paperclip'
 gem 'haml'
 gem 'haml-rails', :group => :development
 gem 'html2haml'
-gem 'activeadmin'
+gem 'activeadmin', '0.5.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -36,8 +36,21 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
+group :development, :test do
+  gem "cucumber-rails-training-wheels"
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'cucumber'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'poltergeist'
+end
+
+
+gem 'jquery-rails'
+gem 'Rack','>= 1.5'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -53,4 +66,3 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-gem "mocha", :group => :test

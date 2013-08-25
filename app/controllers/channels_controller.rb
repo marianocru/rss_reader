@@ -8,7 +8,7 @@ class ChannelsController < ApplicationController
   def index
 
     @channel = @channels[0]
-    @articles = @channel.articles.order('pubdate desc')
+    @articles = @channel.articles.order('pubdate desc')  unless @channel.blank?
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @channels }

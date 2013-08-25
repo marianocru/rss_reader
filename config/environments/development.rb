@@ -44,7 +44,7 @@ RssReader::Application.configure do
       :port => 587,
       :domain => "gmail.com",
       :authentication => :login,
-      :user_name => "marianocruceno@gmail.com",
-      :password => "mayo1979"
+      :user_name => "marianomariano417@gmail.com",
+      :password => "mariano417"
   }
 end

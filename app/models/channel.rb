@@ -1,7 +1,7 @@
 class Channel < ActiveRecord::Base
   belongs_to :user
   has_many :articles
-  attr_accessible :name, :url, :user_id
+  attr_accessible :name, :url, :user_id, :user
 
   validates_presence_of :url, :name
   validate :url_rss_atom_valid?
