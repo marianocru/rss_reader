@@ -1,5 +1,5 @@
 Given /^the following channels:$/ do |channels|
-  Channel.create!(channels.hashes)
+  FactoryGirl.create(:channel, channels.hashes)
 end
 
 When /^I delete the (\d+)(?:st|nd|rd|th) channel$/ do |pos|
@@ -14,9 +14,10 @@ Then /^I should see the following channels:$/ do |expected_channels_table|
 end
 
 When /^I delete the channel id (\d+)$/ do |id|
-  within("channel_#{id}") do
+  within("#channel_#{id}") do
     click_link "Destroy"
   end
+  page.driver.browser.switch_to.alert.accept
 end
 
 When /^I reload the page$/ do
@@ -26,4 +27,20 @@ end
 
 Given /^I am visit the home page$/ do
   visit "/"
+end
+
+Given /^I have (\d+) channels$/ do |n|
+  FactoryGirl.create_list(:channel, n)
+end
+
+When /^I select the channel id (\d+)$/ do |id|
+  within("#channel_#{id}") do
+    click_link "arts"
+  end
+end
+
+When /^I press '(.*)' in the article id (\d+)$/ do |caption ,id|
+  within("li#article_#{id}") do
+    click_link "#{caption}"
+  end
 end

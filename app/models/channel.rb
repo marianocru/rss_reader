@@ -6,7 +6,7 @@ class Channel < ActiveRecord::Base
   validates_presence_of :url, :name
   validate :url_rss_atom_valid?
 
-
+  after_create :update_articles
 
   def url_rss_atom_valid?
     if url_rss_valid?(self.url) || url_atom_valid?(self.url)

@@ -2,7 +2,11 @@ Feature: Manage articles
   In order to [goal]
   [stakeholder]
   wants [behaviour]
-  
+
+  Background: login a user
+    Given a logged in user
+
+
   Scenario: Register new article
     Given I am on the new article page
     When I fill in "Description" with "description 1"

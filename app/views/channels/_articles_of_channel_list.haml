@@ -6,7 +6,7 @@
       No registered articles.
     - else
       - @articles.each do |article|
-        %li.selected
+        %li.selected{:id => "article_#{article.id}", :name => "article_#{article.id}"}
           .data
             %div{:id => "article_header-#{article.id}"}
               %h4
